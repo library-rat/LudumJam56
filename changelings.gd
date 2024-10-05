@@ -5,7 +5,7 @@ const SPEED = 300.0
 
 @export var free_speed = 400
 
-var grablist : Array[Node] = []
+
 var grabbing : Node = null;
 
 
@@ -17,23 +17,22 @@ func get_input():
 
 func _input(event):
 	if event.is_action_pressed("grab"):
-		if grabbing != null :
+		if grabbing :
 			grabbing.drop()
 		else :
-			grabbing = grablist.front()
+			for elt in $GrabArea.get_overlapping_bodies() :
+				print($GrabArea.get_overlapping_bodies())
+				if elt.is_in_group("Coin"):
+					grabbing = elt
+					print("in it")
+					break
+			print("ok")
+			print(grabbing)
+			if grabbing :
+				grabbing.grab(self)
+				print("grabbed")
+
 
 func _physics_process(delta : float) -> void:
 	get_input()
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Coin"):
-		print("append")
-		grablist.append(body)
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Coin"):
-		print("append")
-		grablist.erase(body)

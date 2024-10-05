@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://2juu2pkmlvmy" path="res://changelings.tscn" id="1_nrla2"]
 [ext_resource type="PackedScene" uid="uid://bk6lcsaxw4pt" path="res://coin.tscn" id="2_elqip"]
 
-[node name="VendingMachine" type="Sprite2D"]
+[node name="VendingMachine" type="Sprite2D" groups=["VendingMachine"]]
 
 [node name="Changelings" parent="." instance=ExtResource("1_nrla2")]
+position = Vector2(484, 61)
 
 [node name="Coin" parent="." instance=ExtResource("2_elqip")]
 position = Vector2(521, 61)
