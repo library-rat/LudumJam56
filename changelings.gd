@@ -19,18 +19,16 @@ func _input(event):
 	if event.is_action_pressed("grab"):
 		if grabbing :
 			grabbing.drop()
+			grabbing = null
 		else :
 			for elt in $GrabArea.get_overlapping_bodies() :
 				print($GrabArea.get_overlapping_bodies())
 				if elt.is_in_group("Coin"):
 					grabbing = elt
-					print("in it")
 					break
-			print("ok")
 			print(grabbing)
 			if grabbing :
 				grabbing.grab(self)
-				print("grabbed")
 
 
 func _physics_process(delta : float) -> void:
