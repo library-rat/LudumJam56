@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8ri14e1pcj4p"]
+[gd_scene load_steps=4 format=3 uid="uid://8ri14e1pcj4p"]
 
 [ext_resource type="PackedScene" uid="uid://2juu2pkmlvmy" path="res://changelings.tscn" id="1_nrla2"]
 [ext_resource type="PackedScene" uid="uid://bk6lcsaxw4pt" path="res://coin.tscn" id="2_elqip"]
+[ext_resource type="PackedScene" uid="uid://dgqs72386g4cc" path="res://stockage_piece.tscn" id="3_yc7bx"]
 
 [node name="VendingMachine" type="Sprite2D" groups=["VendingMachine"]]
 
@@ -13,3 +14,6 @@ position = Vector2(521, 61)
 
 [node name="Coin2" parent="." instance=ExtResource("2_elqip")]
 position = Vector2(540, 89)
+
+[node name="Stockage_piece" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(327, 41)

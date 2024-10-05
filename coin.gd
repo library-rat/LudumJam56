@@ -19,9 +19,9 @@ func drop():
 	
 	
 func grab(grabber : Node )-> void :
-	var init_position = self.global_position
-	get_parent().remove_child(self)
+	if(get_parent()):
+		get_parent().remove_child(self)
 	grabber.add_child(self)
-	global_position = init_position
+	position = Vector2(40, 0)
 	
 	set_collision_layer_value(1,false)
