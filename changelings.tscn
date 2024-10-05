@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2juu2pkmlvmy"]
+[gd_scene load_steps=6 format=3 uid="uid://2juu2pkmlvmy"]
 
 [ext_resource type="Script" path="res://changelings.gd" id="1_mxpwx"]
 [ext_resource type="Texture2D" uid="uid://ddgyfshl372el" path="res://Changeling.png" id="2_8rvit"]
@@ -8,6 +8,9 @@ radius = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3c5o"]
 radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if7x6"]
+size = Vector2(91, 42)
 
 [node name="Changelings" type="CharacterBody2D"]
 script = ExtResource("1_mxpwx")
@@ -25,3 +28,8 @@ input_pickable = false
 
 [node name="GrabZone" type="CollisionShape2D" parent="GrabArea"]
 shape = SubResource("CapsuleShape2D_y3c5o")
+
+[node name="CoinHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(23, -1)
+shape = SubResource("RectangleShape2D_if7x6")
+disabled = true
