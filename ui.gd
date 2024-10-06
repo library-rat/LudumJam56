@@ -2,12 +2,24 @@ extends Control
 @onready var PriceLabel = $OrderPanel/VBoxContainer/Price
 @onready var PayedLabel = $OrderPanel/VBoxContainer/Payed
 @onready var ReturnLabel = $"OrderPanel/VBoxContainer/To Return"
+
+@onready var TimeBar = $OrderPanel/VBoxContainer/TimeContainer/ProgressBar
 var PriceList = [95, 125, 185, 230, 315 ]
 var CoinValues = [200, 100, 50, 20, 5]
 var ToReturn : int
 
 func _ready() -> void:
 	init_order()
+
+func _process(delta: float) -> void:
+	updateTimer(delta)
+
+func updateTimer(plusTime: float) -> void:
+	
+	var newval = TimeBar.value + plusTime *1
+	if newval > 100 :
+		pass
+	TimeBar.value = newval
 
 func checkValue(coinval : int) -> bool :
 	return (coinval <= ToReturn)

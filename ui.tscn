@@ -47,3 +47,17 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "To Return :"
+
+[node name="TimeContainer" type="VBoxContainer" parent="OrderPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 2
+
+[node name="TimeLabel" type="Label" parent="OrderPanel/VBoxContainer/TimeContainer"]
+layout_mode = 2
+text = "Time  Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="OrderPanel/VBoxContainer/TimeContainer"]
+layout_mode = 2
