@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://8ri14e1pcj4p"]
+[gd_scene load_steps=6 format=3 uid="uid://8ri14e1pcj4p"]
 
 [ext_resource type="PackedScene" uid="uid://2juu2pkmlvmy" path="res://changelings.tscn" id="1_nrla2"]
 [ext_resource type="PackedScene" uid="uid://bk6lcsaxw4pt" path="res://coin.tscn" id="2_elqip"]
 [ext_resource type="PackedScene" uid="uid://dgqs72386g4cc" path="res://stockage_piece.tscn" id="3_yc7bx"]
+[ext_resource type="PackedScene" uid="uid://cfpxr3vtv3hgh" path="res://returner.tscn" id="4_6ik8m"]
+[ext_resource type="PackedScene" uid="uid://b0ie7bflnowvq" path="res://ui.tscn" id="5_gft32"]
 
 [node name="VendingMachine" type="Sprite2D" groups=["VendingMachine"]]
 
@@ -10,10 +12,60 @@
 position = Vector2(484, 61)
 
 [node name="Coin" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(521, 61)
+position = Vector2(588, 82)
+
+[node name="Coin5" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(609, 25)
+
+[node name="Coin6" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(587, 47)
+
+[node name="Coin7" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(620, 87)
+
+[node name="Coin8" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(639, 49)
+
+[node name="Coin9" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(652, 43)
+
+[node name="Coin10" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(610, 50)
+
+[node name="Coin11" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(612, 114)
+
+[node name="Coin12" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(616, 67)
+
+[node name="Coin13" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(457, 140)
+
+[node name="Coin14" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(775, 50)
+
+[node name="Coin3" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(568, 81)
+
+[node name="Coin4" parent="." instance=ExtResource("2_elqip")]
+position = Vector2(550, 66)
 
 [node name="Coin2" parent="." instance=ExtResource("2_elqip")]
 position = Vector2(540, 89)
 
 [node name="Stockage_piece" parent="." instance=ExtResource("3_yc7bx")]
 position = Vector2(327, 41)
+
+[node name="Returner" parent="." instance=ExtResource("4_6ik8m")]
+position = Vector2(497, 387)
+
+[node name="UI" parent="." instance=ExtResource("5_gft32")]
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = 1151.0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = -1.0
+grow_horizontal = 0
+
+[connection signal="returnedCoin" from="Returner" to="UI" method="_on_returner_returned_coin"]

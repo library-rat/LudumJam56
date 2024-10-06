@@ -34,3 +34,7 @@ func init_order():
 	
 	if ToReturn == 0 :
 		init_order()
+
+
+func _on_returner_returned_coin(retValue: int) -> void:
+	removeValue(retValue)
