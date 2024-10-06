@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://iwbkqpy2mjvc"]
+
+[ext_resource type="Script" path="res://startmenu.gd" id="1_dulu5"]
+[ext_resource type="Texture2D" uid="uid://mvnefgyfd71k" path="res://distributeur.png" id="1_h3nu8"]
+
+[node name="Startmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dulu5")
+
+[node name="MarginContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/HSplitContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_h3nu8")
+stretch_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -1.0
+offset_right = -32.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Hello  !
+Welcome to your first day at your new job Changeling.
+As you probably know it is us Changelings, the fairies who give back the money in vending machines.
+
+Before you start working a few tips :
+-don't worry about asking for new coinsif needed
+-You can give back more money than necessay but it will be taken on your salary
+-Dont keep people waiting or you will lose money
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="MarginContainer/PanelContainer/HSplitContainer/Panel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -95.0
+offset_right = -2.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "START"
+
+[connection signal="button_down" from="MarginContainer/PanelContainer/HSplitContainer/Panel/Button" to="." method="_on_button_button_down"]
