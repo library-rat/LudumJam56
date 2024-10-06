@@ -1,44 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgqs72386g4cc"]
+[gd_scene load_steps=5 format=3 uid="uid://dgqs72386g4cc"]
 
 [ext_resource type="Script" path="res://stockage_piece.gd" id="1_u5she"]
+[ext_resource type="Texture2D" uid="uid://bcodkjidilkii" path="res://ContainerPNG/StorageEmpty.png" id="2_3wntk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo6uw"]
-size = Vector2(68, 106)
+size = Vector2(46, 111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2h6"]
-size = Vector2(67, 158)
+size = Vector2(93, 158)
 
 [node name="Stockage_piece" type="StaticBody2D"]
 position = Vector2(1, 1)
+rotation = 1.5708
 script = ExtResource("1_u5she")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24, 43)
+position = Vector2(27, 45.5)
 shape = SubResource("RectangleShape2D_bo6uw")
 
 [node name="DetectPlayerArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayerArea"]
-position = Vector2(23.5, 69)
+position = Vector2(26.5002, 69)
 shape = SubResource("RectangleShape2D_hv2h6")
 
 [node name="LabelStore" type="Label" parent="."]
-visible = false
-offset_left = -23.0
-offset_top = -54.0
-offset_right = 67.0
-offset_bottom = -14.0
+offset_left = -32.0
+offset_top = 76.0
+offset_right = 58.0
+offset_bottom = 116.0
+rotation = -1.5708
 theme_override_font_sizes/font_size = 29
 text = "STORE"
 
 [node name="LabelGrab" type="Label" parent="."]
 visible = false
-offset_left = -23.0
-offset_top = -54.0
-offset_right = 67.0
-offset_bottom = -14.0
+offset_left = -32.0
+offset_top = 77.0
+offset_right = 58.0
+offset_bottom = 117.0
+rotation = -1.5708
 theme_override_font_sizes/font_size = 29
 text = "GRAB"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 46)
+scale = Vector2(0.118, 0.253)
+texture = ExtResource("2_3wntk")
 
 [connection signal="body_entered" from="DetectPlayerArea" to="." method="_on_detect_player_area_body_entered"]
 [connection signal="body_exited" from="DetectPlayerArea" to="." method="_on_detect_player_area_body_exited"]

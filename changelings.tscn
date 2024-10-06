@@ -13,13 +13,16 @@ radius = 5.0
 size = Vector2(68.5, 42)
 
 [node name="Changelings" type="CharacterBody2D" groups=["Changeling"]]
+position = Vector2(0, 1)
 script = ExtResource("1_mxpwx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xi1x8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.24, 0.24)
+position = Vector2(-20, -3)
+rotation = 1.5708
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_8rvit")
 
 [node name="GrabArea" type="Area2D" parent="."]

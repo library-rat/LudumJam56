@@ -1,71 +1,142 @@
-[gd_scene load_steps=6 format=3 uid="uid://8ri14e1pcj4p"]
+[gd_scene load_steps=12 format=3 uid="uid://8ri14e1pcj4p"]
 
+[ext_resource type="Script" path="res://vending_machine.gd" id="1_c8asu"]
 [ext_resource type="PackedScene" uid="uid://2juu2pkmlvmy" path="res://changelings.tscn" id="1_nrla2"]
-[ext_resource type="PackedScene" uid="uid://bk6lcsaxw4pt" path="res://coin.tscn" id="2_elqip"]
+[ext_resource type="Texture2D" uid="uid://br2m01v6idcp7" path="res://ground.png" id="2_v15x0"]
 [ext_resource type="PackedScene" uid="uid://dgqs72386g4cc" path="res://stockage_piece.tscn" id="3_yc7bx"]
 [ext_resource type="PackedScene" uid="uid://cfpxr3vtv3hgh" path="res://returner.tscn" id="4_6ik8m"]
+[ext_resource type="PackedScene" uid="uid://bt773gk7lrahv" path="res://coin_lever.tscn" id="5_8jxfe"]
 [ext_resource type="PackedScene" uid="uid://b0ie7bflnowvq" path="res://ui.tscn" id="5_gft32"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_642ci"]
+a = Vector2(781, 2)
+b = Vector2(-2, 2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ek3ct"]
+a = Vector2(153, 4)
+b = Vector2(151, 649)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q8ofg"]
+a = Vector2(665, 652)
+b = Vector2(663, 3)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cwiap"]
+a = Vector2(665, 521)
+b = Vector2(154, 518)
+
 [node name="VendingMachine" type="Sprite2D" groups=["VendingMachine"]]
+position = Vector2(148, -2)
+script = ExtResource("1_c8asu")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(408, 283)
+scale = Vector2(1, 1.08984)
+texture = ExtResource("2_v15x0")
 
 [node name="Changelings" parent="." instance=ExtResource("1_nrla2")]
-position = Vector2(484, 61)
-
-[node name="Coin" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(588, 82)
-
-[node name="Coin5" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(609, 25)
-
-[node name="Coin6" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(587, 47)
-
-[node name="Coin7" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(620, 87)
-
-[node name="Coin8" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(639, 49)
-
-[node name="Coin9" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(652, 43)
-
-[node name="Coin10" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(610, 50)
-
-[node name="Coin11" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(612, 114)
-
-[node name="Coin12" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(616, 67)
-
-[node name="Coin13" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(457, 140)
-
-[node name="Coin14" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(775, 50)
-
-[node name="Coin3" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(568, 81)
-
-[node name="Coin4" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(550, 66)
-
-[node name="Coin2" parent="." instance=ExtResource("2_elqip")]
-position = Vector2(540, 89)
+position = Vector2(371, 261)
 
 [node name="Stockage_piece" parent="." instance=ExtResource("3_yc7bx")]
-position = Vector2(327, 41)
+position = Vector2(637, 209)
+
+[node name="Stockage_piece2" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(637, 306)
+
+[node name="Stockage_piece3" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(637, 409)
+
+[node name="Stockage_piece4" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(181, 461)
+rotation = -1.5708
+
+[node name="LabelStore" parent="Stockage_piece4" index="2"]
+offset_left = 85.0
+offset_top = -11.17
+offset_right = 175.0
+offset_bottom = 28.83
+rotation = 1.5708
+
+[node name="LabelGrab" parent="Stockage_piece4" index="3"]
+offset_left = 84.0
+offset_top = -10.17
+offset_right = 174.0
+offset_bottom = 29.83
+rotation = 1.5708
+
+[node name="Stockage_piece5" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(181, 359)
+rotation = -1.5708
+
+[node name="LabelStore" parent="Stockage_piece5" index="2"]
+offset_left = 85.0
+offset_top = -11.17
+offset_right = 175.0
+offset_bottom = 28.83
+rotation = 1.5708
+
+[node name="LabelGrab" parent="Stockage_piece5" index="3"]
+offset_left = 84.0
+offset_top = -10.17
+offset_right = 174.0
+offset_bottom = 29.83
+rotation = 1.5708
+
+[node name="Stockage_piece6" parent="." instance=ExtResource("3_yc7bx")]
+position = Vector2(181, 262)
+rotation = -1.5708
+
+[node name="LabelStore" parent="Stockage_piece6" index="2"]
+offset_left = 85.0
+offset_top = -11.17
+offset_right = 175.0
+offset_bottom = 28.83
+rotation = 1.5708
+
+[node name="LabelGrab" parent="Stockage_piece6" index="3"]
+offset_left = 84.0
+offset_top = -10.17
+offset_right = 174.0
+offset_bottom = 29.83
+rotation = 1.5708
 
 [node name="Returner" parent="." instance=ExtResource("4_6ik8m")]
-position = Vector2(497, 387)
+position = Vector2(362, 515)
 
 [node name="UI" parent="." instance=ExtResource("5_gft32")]
-anchors_preset = 11
-anchor_left = 1.0
-offset_left = 1151.0
-offset_top = -1.0
-offset_right = 1151.0
-offset_bottom = -1.0
-grow_horizontal = 0
+offset_left = -150.0
+offset_top = 2.0
+offset_right = 1000.0
+offset_bottom = 652.0
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("SegmentShape2D_642ci")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("SegmentShape2D_ek3ct")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource("SegmentShape2D_q8ofg")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource("SegmentShape2D_cwiap")
+
+[node name="CoinLever" parent="." instance=ExtResource("5_8jxfe")]
+position = Vector2(199, 65)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(500, 90)
 
 [connection signal="returnedCoin" from="Returner" to="UI" method="_on_returner_returned_coin"]
+[connection signal="change_coins" from="CoinLever" to="." method="_on_coin_lever_change_coins"]
+
+[editable path="Stockage_piece4"]
+[editable path="Stockage_piece5"]
+[editable path="Stockage_piece6"]

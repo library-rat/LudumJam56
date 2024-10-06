@@ -1,25 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfpxr3vtv3hgh"]
+[gd_scene load_steps=5 format=3 uid="uid://cfpxr3vtv3hgh"]
 
 [ext_resource type="Script" path="res://returner.gd" id="1_kxxdl"]
+[ext_resource type="Texture2D" uid="uid://dl1sva68t8van" path="res://ContainerPNG/Receiver.png" id="2_opueu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dut2"]
-size = Vector2(104, 78)
+size = Vector2(104, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dwtu"]
-size = Vector2(101, 56)
+size = Vector2(104.5, 56)
 
 [node name="Returner" type="StaticBody2D"]
 script = ExtResource("1_kxxdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(42, 29)
+position = Vector2(42, 43)
 shape = SubResource("RectangleShape2D_0dut2")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(44, -31)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 18)
+position = Vector2(-0.25, 34)
 shape = SubResource("RectangleShape2D_6dwtu")
 
 [node name="Label" type="Label" parent="."]
@@ -31,6 +32,11 @@ theme_override_font_sizes/font_size = 30
 text = "RETURN CHANGE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(46.4, 46.6)
+scale = Vector2(0.248438, 0.178125)
+texture = ExtResource("2_opueu")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

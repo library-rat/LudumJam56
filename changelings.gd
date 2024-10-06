@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @export var free_speed = 400
-@export var loaded_speed = 50
+@export var loaded_speed = 100
 
 var grabbing : StaticBody2D = null;
 var container : StaticBody2D = null;
@@ -38,7 +38,8 @@ func _input(event):
 			else :
 				if container and not(container.is_empty()):
 					grabbing = container.unstore(self)
-					$CoinHitBox.set_deferred("disabled", false)
+					if grabbing != null :
+						$CoinHitBox.set_deferred("disabled", false)
 
 func _physics_process(delta : float) -> void:
 	get_input()

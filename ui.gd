@@ -4,9 +4,12 @@ extends Control
 @onready var ReturnLabel = $"OrderPanel/VBoxContainer/To Return"
 
 @onready var TimeBar = $OrderPanel/VBoxContainer/TimeContainer/ProgressBar
+@onready var ScoreLabel = $Score
+
 var PriceList = [95, 125, 185, 230, 315 ]
-var CoinValues = [200, 100, 50, 20, 5]
+var CoinValues = [200, 100, 50, 5]
 var ToReturn : int
+var score:int : set = set_score
 
 func _ready() -> void:
 	init_order()
@@ -15,10 +18,12 @@ func _process(delta: float) -> void:
 	updateTimer(delta)
 
 func updateTimer(plusTime: float) -> void:
-	
-	var newval = TimeBar.value + plusTime *1
+	var newval = TimeBar.value + plusTime *3
 	if newval > 100 :
-		pass
+		score = score - 300
+		newval = 0
+		init_order()
+		
 	TimeBar.value = newval
 
 func checkValue(coinval : int) -> bool :
@@ -26,6 +31,16 @@ func checkValue(coinval : int) -> bool :
 
 func removeValue(coinval : int) -> void :
 	ToReturn -= coinval
+	if ToReturn < 0 :
+		score = score + ToReturn
+		init_order()
+		TimeBar.value = 0
+	else :
+		if ToReturn == 0:
+			score = score + 200
+			init_order()
+			TimeBar.value = 0
+
 	ReturnLabel.text = "To Return : %d.%d%d" %[ToReturn/100, ToReturn %100/10, ToReturn%10]
 
 
@@ -47,6 +62,11 @@ func init_order():
 	if ToReturn == 0 :
 		init_order()
 
-
+func set_score(newval : int):
+	score = newval
+	if score >= 0 :
+		ScoreLabel.text = "Your Salary :\n %d.%d%d" %[score/100, score%100/10, score%10]
+	else :
+		ScoreLabel.text = "Your Salary :\n -%d.%d%d" %[-score/100, -score%100/10, -score%10]
 func _on_returner_returned_coin(retValue: int) -> void:
 	removeValue(retValue)
